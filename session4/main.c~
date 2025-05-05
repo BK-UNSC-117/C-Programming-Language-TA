@@ -1,0 +1,80 @@
+#include<stdio.h>
+#include "linalg.c"
+
+void multi(float *mat0,float *mat1,int *sz0,int *sz1,float *mat_ans);
+void zeros(float *mat,int sz0,int sz1);
+
+int main()
+{
+	float a[2][3];
+	float b[3][2];
+	float c[2][2];
+
+	int sz0[]={2,3};
+	int sz1[]={3,2};
+
+	int tmp=0;
+	
+	printf("The matrix 0:\n");
+	for(int i=0;i<2;i++)
+	{
+		for(int j=0;j<3;j++)
+		{
+			a[i][j]=(float)i+j;
+			printf("%f\t",a[i][j]);
+		}
+		printf("\n");
+	}
+	
+	printf("The matrix 1:\n");
+	for(int i=0;i<3;i++)
+	{
+		for(int j=0;j<2;j++)
+		{
+			b[i][j]=(float)i+j+6;
+			printf("%f\t",b[i][j]);
+		}
+		printf("\n");
+	}
+
+	multi((*)a,(*)b,sz0,sz1,(*)c);
+
+	printf("The matrix answer:\n");
+	/*
+	zeros((float *)c,sz0[0],sz1[1]);
+
+	
+	for(int i=0;i<2;i++)
+	{
+		for(int j=0;j<2;j++)
+		{
+			printf("%d\t",c[i][j]);
+		}
+		printf("\n");
+	}
+	
+	zeros((float *)c,sz0[0],sz1[1]);
+
+	for(int i=0;i<sz0[0];i++)
+	{
+		for(int k=0;k<sz1[0];k++)
+		{
+			for(int j=0;j<sz1[1];j++)
+			{
+				c[i][j]+=(float)a[i][k]*b[k][j];
+			}
+		}
+	}*/
+
+	for(int i=0;i<2;i++)
+	{
+		for(int j=0;j<2;j++)
+		{
+			printf("%f\t",c[i][j]);
+		}
+		printf("\n");
+	}
+
+
+
+}

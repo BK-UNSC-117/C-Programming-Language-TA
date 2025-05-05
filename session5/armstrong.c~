@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <math.h>
+#include <stdbool.h>
+
+void armstrong(int number,bool *bl)
+{
+	int cnt=1;
+	int division=number/10;
+	while(division!=0)
+	{
+		division/=10;
+		cnt++;
+		
+	}
+	
+	//printf("%d\n",cnt);
+	int sum=0;
+	int tmp;
+	int tmp0=number;
+	for(int i=cnt-1;i>=0;i--)
+	{
+		tmp=tmp0/pow(10,i);
+		//printf("%d\n",tmp);
+		sum+=pow(tmp,3);
+		tmp0-=tmp*pow(10,i);
+	}
+
+	if(sum==number)
+	{
+		//printf(":))))))\n");
+		*bl=true;
+	}
+	else
+	{
+		//printf(":(((((((\n");
+		*bl=false;
+	}
+
+}
+

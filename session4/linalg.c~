@@ -1,0 +1,68 @@
+#include<stdio.h>
+#include<math.h>
+
+void zeros(float *mat,int sz0,int sz1)
+{
+	for(int i=0;i<sz0;i++)
+	{
+		for(int j=0;j<sz1;j++)
+		{
+			mat[i*sz1+j]=0;
+		}
+	}
+}
+
+void create_mat(float *mat)
+{
+	printf("Under development\n");
+}
+
+void multi(float *mat0,float *mat1,int *sz0,int *sz1,float *mat_ans)
+{
+	int a,b,c;
+	a=sz0[0];
+	b=sz1[1];
+	c=sz0[1];
+	zeros(mat_ans,a,b);
+
+	for(int i=0;i<a;i++)
+	{
+		for(int k=0;k<c;k++)
+		{
+			for(int j=0;j<b;j++)
+			{
+				mat_ans[i*b+j]+=(int)mat0[i*c+k]*mat1[k*b+j];
+			}
+		}
+	}
+	/*
+	for(int j=0;j<b;j++)
+	{
+		for(int i=0;i<a;i++)
+		{
+			printf("%f\n",mat_ans[i*a+j]);
+			mat_ans[i*b+j]+=mat0[i*b+k]*mat1[k*c+j];
+		}
+	}
+	
+
+	int cnt;
+	for(int i=0;i<sz0[0];i++)
+	{
+		cnt=0;
+		for(int k=0;k<sz0[1];k++)
+		{
+			sum=0;
+			for(int j=0;j<sz1[1];j++)
+			{
+				c[i][j]+=(float)a[i][k]*b[k][j];
+			}
+		}
+	}*/
+}
+
+
+void shape(float *mat)
+{
+	printf("Under development\n");	
+}
