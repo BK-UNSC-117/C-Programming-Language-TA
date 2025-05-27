@@ -1,0 +1,33 @@
+#include <stdio.h> 
+#include <stdlib.h> 
+ 
+ 
+struct person
+    { 
+        char *name; 
+        int age; 
+    }; 
+int main() 
+{ 
+    printf("How many people do you want to enter ?"); 
+    int i ,n=2; 
+    scanf("%d",&n); 
+    struct person *people;
+    people=malloc(n*sizeof(struct person));
+    //*person = (struct people *)malloc*(sizeof struct people/n); 
+    for(i=0;i<n;i++) 
+    { 
+        printf("Enter Name : ");
+        scanf("%s", people[i].name); 
+        printf("Enter Age : ");
+        scanf("%d", people[i].age); 
+    } 
+    for(i=0;i<n;i++) 
+    { 
+        printf("Name : %s", people[i].name); 
+        printf("Age : %d", people[i].age); 
+    } 
+ 
+    //printf("Person %d -> Name = %s \t Age = %d",i+1,people[i].name ,people[i].age ); 
+    return 0; 
+}

@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+struct student
+{
+	int id;
+	char *name;
+};
+
+void print_st(struct student *st);
+
+void main()
+{
+	struct student *st0=&(struct student){1234,"Doom Guy"};
+	print_st(st0);
+}
+
+void print_st(struct student *st)
+{
+	printf("%s",st->id);
+}

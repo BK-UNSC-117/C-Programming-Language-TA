@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdbool.h>
+
+#include "counts.c"
+
+void main()
+{
+	char dir[PATH_MAX];
+	getcwd(dir,sizeof(dir));
+	strcat(dir,"\\Text.txt");
+
+	FILE *f=fopen(dir,"r");
+	char **ln=NULL;
+
+	int t_ch=0;
+	int t_ln=0;
+
+	ln=malloc(sizeof(char*));
+	ln[0]=NULL;
+	
+	char c_tmp;
+	while(true)
+	{
+		c_tmp=fgetc(f);
+		if(feof(f)) break;
+		if(c_tmp=='\r') continue;
+		if(c_tmp!='\n')
+		{
+			ln[t_ln]=realloc(ln[t_ln],sizeof(char)*(t_ch+2));
+			ln[t_ln][t_ch]=c_tmp;
+			//printf("%c",ln[t_ln][t_ch]);
+			t_ch++;
+			ln[t_ln][t_ch]='\0';
+		}
+		else
+		{
+			t_ln++;
+			ln=realloc(ln,sizeof(char*)*(t_ln+1));
+			t_ch=0;
+			ln[t_ln]=malloc(sizeof(char));	
+			ln[t_ln][0]='\0';
+		}
+	
+	}
+	//printf("\n");
+	t_ln++;	
+	int counter=0;
+	int tmp=0;
+	printf("%d",t_ln);
+	for(int i=0;i<t_ln;i++)
+	{
+		//printf("\n%d\n",i);
+		cnt_wd(&tmp,ln[i]);
+		//printf("%s\n",ln[i]);
+		counter+=tmp;
+	}
+	printf("Total word: %d\n",counter);
+	char *word="powers";
+	counter=0;
+	tmp=0;
+	for(int i=0;i<t_ln;i++)
+	{
+		cnt_swd(&tmp,ln[i],word);
+		counter+=tmp;
+	}
+	printf("Specific words: %d",counter);
+}

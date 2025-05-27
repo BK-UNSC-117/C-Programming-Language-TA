@@ -31,7 +31,7 @@ void cnv(int a,int *binary)
 
 int main()
 {
-	int a=12;
+	int a=8;
 	int bin;
 	cnv(a,&bin);
 	printf("Printed by the pointer method %d\n",bin);

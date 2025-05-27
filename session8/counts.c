@@ -1,0 +1,126 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+#include <ctype.h>
+
+void cnt_wd(int *cnt,char *txt)
+{
+	bool in_word=false;
+	*cnt=0;
+	for(int i=0;txt[i]!='\0';i++)
+	{
+		if(ispunct(txt[i]) || txt[i]==' ')
+		{
+			in_word=false;
+			continue;
+		}
+		else if(!in_word)
+		{
+			(*cnt)++;
+			in_word=true;
+		}
+		else
+		{
+			continue;
+		}
+	}
+}
+
+void cnt_swd(int *cnt,char *txt,char *word)
+{
+	int hm=0;
+	int n_wd=0;
+	for(int i=0;word[i]!='\0';i++)
+	{
+		n_wd++;
+	}
+	int tmp=0;
+	bool found=false;
+	for(int i=0;txt[i]!='\0';i++)
+	{
+		for(tmp=0;tmp<n_wd;tmp++)
+		{
+			if(txt[i]!=word[tmp])
+			{
+				found=false;
+				break;
+			}
+			else
+			{
+				found=true;
+				i++;
+			}
+		}
+
+		if(found)
+		{
+			tmp=0;
+			(*cnt)++;
+		}	
+
+	}	
+}
+
+
+/*
+void main()
+{
+	char txt[]="Hey buddy, how are you today?!  wanna come play today?!";
+	char word[]="how";
+	int n_wd=0;
+	for(int i=0;word[i]!='\0';i++)
+	{
+		n_wd++;
+	}
+	printf("%d",n_wd);
+	int words=0;
+	bool in_word=false;
+	
+	for(int i=0;txt[i]!='\0';i++)
+	{
+		if(ispunct(txt[i]) || txt[i]==' ')
+		{
+			in_word=false;
+			continue;
+		}
+		else if(!in_word)
+		{
+			words++;
+			in_word=true;
+		}
+		else
+		{
+			continue;
+		}
+	}
+	int tmp=0;
+	int hm=0;
+	bool found=false;
+	for(int i=0;txt[i]!='\0';i++)
+	{
+		for(tmp=0;tmp<n_wd;tmp++)
+		{
+			if(txt[i]!=word[tmp])
+			{
+				found=false;
+				break;
+			}
+			else
+			{
+				found=true;
+				i++;
+			}
+		}
+
+		if(found)
+		{
+			tmp=0;
+			hm++;
+		}	
+
+	}	
+
+
+	printf("\n%d\n",hm);
+
+}*/

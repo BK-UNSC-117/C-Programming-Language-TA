@@ -5,7 +5,7 @@ int main()
 {
 	int a=2,b=4;
 	float rslt=NAN;
-	char sgn='/';
+	char sgn='-';
 	switch(sgn)
 	{
 		case '*':

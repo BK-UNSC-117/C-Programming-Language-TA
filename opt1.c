@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct student {
+    int id;
+    char *fname;
+    char *lname;
+    int age;
+    int gpa;
+};
+
+void display (struct student *ps1 );
+
+int main()
+{
+	struct student *ps1;
+	ps1=calloc(1,sizeof(struct student));
+	printf("dadada");
+	ps1->id = 12345678;
+	ps1->fname = "MAHDI";
+	ps1->lname = "MOHAMMADI";
+	ps1->age = 25;
+	ps1->gpa = 20;
+	display (ps1);
+	return 0;
+}
+void display (struct student *ps1) 
+{
+	printf("ID = %d\nfname = %s\nlname = %s\nage = %d\n\n" , ps1->id , ps1->fname , ps1->lname , ps1->age );
+}
